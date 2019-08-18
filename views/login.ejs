@@ -1,0 +1,26 @@
+<% include ./partials/header%>
+
+<div class="container">
+	<div class="row">
+		
+		<div style="width:30%; margin: 25px auto;color:#32a61b">
+			<h1 style="text-align:center;">GaMeMo login</h1>
+			<hr>
+				<form action="/login" method="POST">
+					<div class="form-group">
+						<input class="form-control" type="text" name="username" placeholder="username">
+					</div>
+					<div class="form-group">
+						<input class="form-control" type="password" name="password" placeholder="password">
+					</div>
+					<div class="form-group">
+						<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login">
+					</div>
+
+				</form>
+			<p>New User ?  <a href="/register">Sign Up</a>   It's Free!</p>
+		</div>
+	</div>
+</div>
+
+<% include ./partials/footer %>

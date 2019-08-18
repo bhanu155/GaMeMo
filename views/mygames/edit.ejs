@@ -1,0 +1,78 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<form action="/mygames/<%= game._id %>?_method=PUT" method="POST">
+  		<div class="form-group row">
+    		<label for="nameW" class="col-sm-2 col-form-label">White Player</label>
+    		<div class="col-sm-10">
+      			<input type="text" class="form-control" id="nameW" value="<%= game.whitePlayer %>" name="game[whitePlayer]">
+    		</div>
+  		</div>
+  		<div class="form-group row">
+   			 <label for="nameB" class="col-sm-2 col-form-label">Black Player</label>
+    		 <div class="col-sm-10">
+      			<input type="text" class="form-control" id="nameB" value="<%= game.blackPlayer %>" name="game[blackPlayer]">
+    		 </div>
+  		</div>
+  		<fieldset class="form-group">
+    		<div class="row">
+      			<legend class="col-form-label col-sm-2 pt-0">Result</legend>
+      				<div class="col-sm-10">
+						<% if(game.resultW==1){ %>
+						<input  type="radio" name="game[result]" id="gridRadios1" value="white" checked>
+						<label  for="gridRadios1">White (1-0)</label>
+						<input  type="radio" name="game[result]" id="gridRadios2" value="black">
+						<label  for="gridRadios2">Black (0-1)</label>
+						<input  type="radio" name="game[result]" id="gridRadios3" value="draw">
+						<label  for="gridRadios3">Draw (0.5-0.5)</label>
+						<% } else if(game.resultB==1){ %>
+						<input  type="radio" name="game[result]" id="gridRadios1" value="white">
+						<label  for="gridRadios1">White (1-0)</label>
+						<input  type="radio" name="game[result]" id="gridRadios2" value="black" checked>
+						<label  for="gridRadios2">Black (0-1)</label>
+						<input  type="radio" name="game[result]" id="gridRadios3" value="draw">
+						<label  for="gridRadios3">Draw (0.5-0.5)</label>	
+						<% } else{ %>
+						<input  type="radio" name="game[result]" id="gridRadios1" value="white">
+						<label  for="gridRadios1">White (1-0)</label>
+						<input  type="radio" name="game[result]" id="gridRadios2" value="black">
+						<label  for="gridRadios2">Black (0-1)</label>
+						<input  type="radio" name="game[result]" id="gridRadios3" value="draw" checked>
+						<label  for="gridRadios3">Draw (0.5-0.5)</label>
+						<% } %>
+					</div>
+   		    </div>
+  		</fieldset>
+ 	    
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col" style="width:100%, height:100%">#</th>
+					<th scope="col" style="width:100%, height:100%">white</th>
+					<th scope="col" style="width:100%, height:100%">black</th>
+					<th scope="col" style="width:100%, height:100%">Comment</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% for(var i=0; i<50; i++){ %>
+				<tr>
+					<th scope="row"><%= i+1 %>.</th>
+					<td><input type="text" name="movesW[<%i%>]" style="width:100%, height:100%" value="<%= game.movesW[i] %>"></td>
+					<td><input type="text" name="movesB[<%i%>]" style="width:100%, height:100%" value="<%= game.movesB[i] %>"></td>
+					<td><input type="text" name="comment[<%i%>]" style="width:100%, height:100%" value="<%= game.comment[i] %>"></td>
+				</tr>
+				<% } %>
+			</tbody>
+		</table>	
+		
+		<div class="form-group row">
+    		<div class="col-sm-10">
+      			<button type="submit" class="btn btn-primary">SAVE</button>
+    		</div>
+  		</div>
+		
+	</form>	
+</div>
+
+<% include ../partials/footer %>

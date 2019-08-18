@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<div class="Container">
+
+	<div class="text-center mt-3">
+			<a class="btn btn-primary btn-lg" href="/mygames/new">ADD NEW GAME</a>
+	</div>
+		
+	<div class="row justify-content-space-around align-items-center mx-5">
+		
+		<% games.forEach((game)=>{ %>
+			<% if(currentUser && game.author.id.equals(currentUser._id)) {%>
+			<div class="col-12 col-md-6 col-lg-4 col-xl-3 text-center pr-0 mt-2 mb-2">
+				<div class="card" style="width: 18rem;">
+  					<div class="card-body">
+   				 		<h5 class="card-title"><%= game.resultW %> -  <%= game.resultB %></h5>
+    			 		<h6 class="card-subtitle mb-2 text-muted">White: <%= game.whitePlayer %> Black: <%= game.blackPlayer %></h6>
+						<div class="px-3 ml-0 mt-10">
+						<a href="/mygames/<%= game._id %>" class="card-link btn btn-sm btn-outline-primary ml-0">View</a>
+						<a href="/mygames/<%= game._id %>/edit" class="card-link btn btn-sm btn-outline-warning">Edit</a>
+						<form class="deleteForm float-right mx-0" action="/mygames/<%= game._id %>?_method=DELETE" method="POST">
+							<button class="btn btn-sm btn-outline-danger">Delete</button>
+						</form>
+						</div>
+   			     		
+ 			 		</div>
+				</div>
+			</div>
+		<% }}); %>
+	
+</div>
+</div>
+
+
+
+
+
+<% include ../partials/footer %>

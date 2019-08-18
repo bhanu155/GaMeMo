@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+	<title>gaMeMo</title>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<!-- semantic UI -->
+	<link rel="stylesheet" type="text/css" href="semantic/dist/semantic.min.css">
+	<!-- font -->
+	<link href="https://fonts.googleapis.com/css?family=Merriweather:400,700,900,900i&display=swap" rel="stylesheet">
+	
+	<style type="text/css">
+		body{
+			background-image:url('assets/4K-Chess-Wallpaper-Download-Free.jpg');height:100%; 
+			background-position: top;
+			background-repeat: no-repeat; 
+			background-size: cover;
+			font-family: 'Merriweather', serif;
+			color:#32992b;
+			
+		}
+		.d-flex{
+			padding-top: 100px;/*to separate the navbar and rest content*/
+		}
+		.tab{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	</style>	
+	
+</head>
+
+<body>
+	
+
+	
+<nav class="navbar navbar-light" style="background-color: #f7f7f7;">
+	<a class="navbar-brand" href="/" style="color:green"><b>GaMeMo</b></a>
+	<ul class="nav justify-content-end">
+		<% if(!currentUser) { %>
+			<li class="nav-item"><a class="nav-link active" href="/login">Login</a></li>
+			<li class="nav-item"><a class="nav-link active" href="/register">Sign Up</a></li>
+		<% } else { %>
+			<li class="nav-item"><a class="nav-link disabled" href="#">Signed In as <%= currentUser.username %></a></li>
+			<li class="nav-item"><a class="nav-link active" href="/logout">Log Out</a></li>
+			<% } %>
+	</ul>
+</nav>
