@@ -96,32 +96,35 @@ router.get('/:id/edit', middleware.checkGameOwnership, ( req, res)=>{
 
 //UPDATE route
 router.put('/:id',	middleware.checkGameOwnership, (req, res)=>{
-
-	Game.findById(req.params.id, (err, updatedGame)=>{
-		updatedGame=req.body.game;
-		if(req.body.game.result=="white")
-			{
-				updatedGame.resultW=1;
-				updatedGame.resultB=0;
-			}
-		else if(req.body.game.result=="black")
-			{
-				updatedGame.resultW=0;
-				updatedGame.resultB=1;
-			}
-		else
-			{
-				updatedGame.resultW=0.5;
-				updatedGame.resultB=0.5;
-			}
-		updatedGame.movesW=(req.body.movesW);
-		updatedGame.movesB=(req.body.movesB);
-		updatedGame.comment=(req.body.comment);
-		
-		res.redirect('/mygames/' + updatedGame._id);	
+	var white=0;
+	var black=0;
+	if(req.body.result=="white"){
+		white=1; 	black=0;
+	}else if(req.body.result=="black"){
+		white=0; 	black=1;
+	}else if(req.body.result=="draw"){
+		white=0.5;	black=0.5;
+	}
+	var myquery = { _id: req.params.id };
+  	var newvalues = { $set: {
+							whitePlayer: req.body.whitePlayer,
+							blackPlayer: req.body.blackPlayer,
+							resultW: white,
+							resultB: black,
+							movesW: req.body.movesW,
+							movesB: req.body.movesB,
+							comment: req.body.comment
+						}	 
+	};
 	
-	});
-});
+  	Game.updateOne(myquery, newvalues, function(err, result) {
+    	if (err){
+			throw err;
+		}else{
+			res.redirect('/mygames/' + req.params.id);
+		}
+    });
+});	
 	
 
 

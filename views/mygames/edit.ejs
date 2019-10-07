@@ -5,13 +5,13 @@
   		<div class="form-group row">
     		<label for="nameW" class="col-sm-2 col-form-label">White Player</label>
     		<div class="col-sm-10">
-      			<input type="text" class="form-control" id="nameW" value="<%= game.whitePlayer %>" name="game[whitePlayer]">
+      			<input type="text" class="form-control" id="nameW" value="<%= game.whitePlayer %>" name="whitePlayer">
     		</div>
   		</div>
   		<div class="form-group row">
    			 <label for="nameB" class="col-sm-2 col-form-label">Black Player</label>
     		 <div class="col-sm-10">
-      			<input type="text" class="form-control" id="nameB" value="<%= game.blackPlayer %>" name="game[blackPlayer]">
+      			<input type="text" class="form-control" id="nameB" value="<%= game.blackPlayer %>" name="blackPlayer">
     		 </div>
   		</div>
   		<fieldset class="form-group">
@@ -19,25 +19,25 @@
       			<legend class="col-form-label col-sm-2 pt-0">Result</legend>
       				<div class="col-sm-10">
 						<% if(game.resultW==1){ %>
-						<input  type="radio" name="game[result]" id="gridRadios1" value="white" checked>
+						<input  type="radio" name="result" id="gridRadios1" value="white" checked>
 						<label  for="gridRadios1">White (1-0)</label>
-						<input  type="radio" name="game[result]" id="gridRadios2" value="black">
+						<input  type="radio" name="result" id="gridRadios2" value="black">
 						<label  for="gridRadios2">Black (0-1)</label>
-						<input  type="radio" name="game[result]" id="gridRadios3" value="draw">
+						<input  type="radio" name="result" id="gridRadios3" value="draw">
 						<label  for="gridRadios3">Draw (0.5-0.5)</label>
 						<% } else if(game.resultB==1){ %>
-						<input  type="radio" name="game[result]" id="gridRadios1" value="white">
+						<input  type="radio" name="result" id="gridRadios1" value="white">
 						<label  for="gridRadios1">White (1-0)</label>
-						<input  type="radio" name="game[result]" id="gridRadios2" value="black" checked>
+						<input  type="radio" name="result" id="gridRadios2" value="black" checked>
 						<label  for="gridRadios2">Black (0-1)</label>
-						<input  type="radio" name="game[result]" id="gridRadios3" value="draw">
+						<input  type="radio" name="result" id="gridRadios3" value="draw">
 						<label  for="gridRadios3">Draw (0.5-0.5)</label>	
 						<% } else{ %>
-						<input  type="radio" name="game[result]" id="gridRadios1" value="white">
+						<input  type="radio" name="result" id="gridRadios1" value="white">
 						<label  for="gridRadios1">White (1-0)</label>
-						<input  type="radio" name="game[result]" id="gridRadios2" value="black">
+						<input  type="radio" name="result" id="gridRadios2" value="black">
 						<label  for="gridRadios2">Black (0-1)</label>
-						<input  type="radio" name="game[result]" id="gridRadios3" value="draw" checked>
+						<input  type="radio" name="result" id="gridRadios3" value="draw" checked>
 						<label  for="gridRadios3">Draw (0.5-0.5)</label>
 						<% } %>
 					</div>
@@ -68,7 +68,7 @@
 		
 		<div class="form-group row">
     		<div class="col-sm-10">
-      			<button type="submit" class="btn btn-primary">SAVE</button>
+      			<button type="submit" class="btn btn-primary">SAVE CHANGES</button>
     		</div>
   		</div>
 		
