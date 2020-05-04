@@ -1,0 +1,31 @@
+
+  h2{
+      color: white;
+      font-family: 'Architects Daughter';
+      
+  }
+  p{
+      color: white;
+       font-family: Architects Daughter;
+  }
+  h5{
+      color:white;
+       font-family:' Architects Daughter';
+  }
+  h1
+  {
+      color: white;
+  }
+  .carousel-item
+  {
+      transition: .6s
+  }
+
+
+
+  @font-face {
+    font-family: 'jap';
+  src: 
+  url('go3v2.ttf') 
+  format('truetype');
+  }
